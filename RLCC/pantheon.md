@@ -1,24 +1,28 @@
 ### run on every boot
 ```
 sudo sysctl -w net.ipv4.ip_forward=1
+cd /home/airman/Github/pantheon/third_party/pcc-experimental/src
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/pantheon/third_party/pcc-experimental/src/core/ 
 ```
 
 ### how to change pcc-rl model
-PCC-Uspace.md 참조
+PCC-Uspace.md check
 
 ### Recent Test
 ```
-src/experiments/test.py local --schemes "pcc_experimental" --data-dir 0203rb-LTE -t 60 --run-times 20 --uplink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.up --downlink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.down --extra-mm-link-args " --uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
+src/experiments/test.py local --schemes "ccrl" --data-dir 0203rb-LTE -t 60 --run-times 20 --uplink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.up --downlink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.down --extra-mm-link-args " --uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
 ```
 
 ### LTE Link
 ```
-src/experiments/test.py local --schemes "cubic pcc vivace bbr copa pcc_experimental" --data-dir {model name} -t 30 --run-times 5 --uplink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.up --downlink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.down --extra-mm-link-args " --uplink-queue=droptail --uplink-queue-args=packets=500 --meter-all" --prepend-mm-cmds "mm-delay 32"
+src/experiments/test.py local --schemes "cubic pcc vivace bbr copa pcc_experimental" --data-dir 0205icmlLTE -t 30 --run-times 5 --uplink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.up --downlink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.down --extra-mm-link-args " --uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
 ```
 
 ### general Link
 ```
-src/experiments/test.py local --schemes "cubic pcc vivace bbr copa pcc_experimental" --data-dir icml -t 30 --run-times 5 --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
+src/experiments/test.py local --schemes "cubic pcc vivace bbr copa pcc_experimental" --data-dir 0205icml -t 30 --run-times 5 --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
+
+src/experiments/test.py local --schemes "pcc_experimental" --data-dir ccrltest2 -t 30 --run-times 5 --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
 ```
 
 #### ICML19 paper env
