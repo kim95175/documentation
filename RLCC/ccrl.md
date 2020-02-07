@@ -3,13 +3,13 @@
 #### server
 ```
 cd pcc-uspace/src 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/PCC-Uspace/src/core/ 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/ccrl/src/core/ 
 ./app/pccserver recv {port number}
 ```
 #### sender
 ```
 cd pcc-uspace/src 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/PCC-Uspace/src/core/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/ccrl/src/core/
 
 // code 직접 수정시
 ./app/pccclient send 127.0.0.1 {port number}    
@@ -23,8 +23,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/PCC-Uspace/src/core/
 
 ### server : 동일하게 열어 줌 
 ```
-cd pcc-uspace/src 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/PCC-Uspace/src/core/ 
+cd ccrl/src 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/ccrl/src/core/ 
 ./app/pccserver recv {port number}
 ```
 ### gym side of the training environment from the pcc-rl repo
@@ -35,8 +35,8 @@ python3 shim_solver.py
 
 ### udt side of the training environment
 ```
-cd pcc-uspace/src 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/PCC-Uspace/src/core/ 
+cd ccrl/src 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/ccrl/src/core/ 
 ./app/pccclient send 127.0.0.1 9000 --pcc-utility-calc=linear --pcc-rate-control=python -pypath=/home/airman/Github/PCC-RL/src/udt-plugins/training/ -pyhelper=shim --history-len=10
 ```
 

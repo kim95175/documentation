@@ -10,25 +10,43 @@ PCC-Uspace.md check
 
 ### Recent Test
 ```
-src/experiments/test.py local --schemes "ccrl" --data-dir 0203rb-LTE -t 60 --run-times 20 --uplink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.up --downlink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.down --extra-mm-link-args " --uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
+src/experiments/test.py local --schemes "cubic vivace bbr copa pcc_experimental" --data-dir 0207icml -t 30 --run-times 5 --uplink-trace 60mbps.trace --downlink-trace 60mbps.trace --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
 ```
 
 ### LTE Link
 ```
-src/experiments/test.py local --schemes "cubic pcc vivace bbr copa pcc_experimental" --data-dir 0205icmlLTE -t 30 --run-times 5 --uplink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.up --downlink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.down --extra-mm-link-args " --uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
+src/experiments/test.py local --schemes "vivace bbr copa pcc_experimental" --data-dir 0207vivaceloss2 -t 30 --run-times 5 --uplink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.up --downlink-trace /home/airman/Github/mahimahi/traces/Verizon-LTE-short.down --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
 ```
 
 ### general Link
 ```
-src/experiments/test.py local --schemes "cubic pcc vivace bbr copa pcc_experimental" --data-dir 0205icml -t 30 --run-times 5 --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
+src/experiments/test.py local --schemes "cubic vivace bbr copa pcc_experimental" --data-dir 0207_60mbps -t 30 --run-times 5 --uplink-trace /home/airman/Github/pantheon/src/traces/48mbps.trace --downlink-trace /home/airman/Github/pantheon/src/traces/48mbps.trace --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 30"
 
 src/experiments/test.py local --schemes "pcc_experimental" --data-dir ccrltest2 -t 30 --run-times 5 --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
+
+src/experiments/test.py local --schemes "bbr" --data-dir ccrltest2 -t 30 --run-times 5 --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=500" --prepend-mm-cmds "mm-delay 32"
 ```
 
-#### ICML19 paper env
+#### ICML19 paper env 
+##### Bandwidth
+```
+src/experiments/test.py local --schemes "cubic vivace copa pcc_experimental" --data-dir icml-bandwidth10 -t 30 --run-times 3 --uplink-trace /home/airman/Github/pantheon/src/traces/10mbps.trace --downlink-trace /home/airman/Github/pantheon/src/traces/10mbps.trace --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=1000" --prepend-mm-cmds "mm-delay 30"
+```
+##### Latency
+```
+src/experiments/test.py local --schemes "cubic vivace copa pcc_experimental" --data-dir latency400 -t 30 --run-times 3 --uplink-trace /home/airman/Github/pantheon/src/traces/30mbps.trace --downlink-trace /home/airman/Github/pantheon/src/traces/30mbps.trace --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=1000" --prepend-mm-cmds "mm-delay 400"
+```
+##### Queue
+```
+src/experiments/test.py local --schemes "cubic vivace copa pcc_experimental" --data-dir icml-queue2 -t 30 --run-times 3 --uplink-trace /home/airman/Github/pantheon/src/traces/30mbps.trace --downlink-trace /home/airman/Github/pantheon/src/traces/30mbps.trace --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=2" --prepend-mm-cmds "mm-delay 30"
+```
+##### loss
+```
+src/experiments/test.py local --schemes "cubic vivace copa pcc_experimental" --data-dir icml-loss2.5 -t 30 --run-times 3 --uplink-trace /home/airman/Github/pantheon/src/traces/30mbps.trace --downlink-trace /home/airman/Github/pantheon/src/traces/30mbps.trace --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=1000" --prepend-mm-cmds "mm-delay 30 mm-loss uplink 0.025"
+
+src/experiments/test.py local --schemes "cubic vivace copa pcc_experimental" --data-dir icml-loss0 -t 30 --run-times 3 --uplink-trace /home/airman/Github/pantheon/src/traces/30mbps.trace --downlink-trace /home/airman/Github/pantheon/src/traces/30mbps.trace --extra-mm-link-args "--uplink-queue=droptail --uplink-queue-args=packets=1000" --prepend-mm-cmds "mm-delay 30"
 ```
 
-```
 
 ### Optinal arguments:
 ```
