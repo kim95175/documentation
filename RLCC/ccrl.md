@@ -15,7 +15,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/airman/Github/ccrl/src/core/
 ./app/pccclient send 127.0.0.1 {port number}    
 
 // parameter cmd로 입력시
-./app/pccclient send 127.0.0.1 9000 --pcc-rate-control=python -pyhelper=loaded_client -pypath=/home/airman/Github/PCC-RL/src/udt-plugins/testing/ --history-len=10 --pcc-utility-calc=linear --model-path=/home/airman/Github/PCC-RL/src/pcc_saved_models/model_rb/
+./app/pccclient send 127.0.0.1 9000 --pcc-rate-control=python -pyhelper=loaded_client -pypath=/home/airman/Github/PCC-RL/src/udt-plugins/testing/ --history-len=10 --pcc-utility-calc=linear --model-path=/home/airman/Github/PCC-RL/src/pcc_saved_models/model_specific/
 ```
 
 
